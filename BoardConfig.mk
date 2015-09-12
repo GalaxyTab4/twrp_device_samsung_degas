@@ -33,16 +33,12 @@ BOARD_USE_BGRA_8888 := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 
 # Charging mode
-BOARD_CHARGING_MODE_BOOTING_LPM := true
-
-# Charging mode
-#BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
-#BOARD_CHARGING_MODE_BOOTING_LPM := true
-#BOARD_BATTERY_DEVICE_NAME := "battery"
-#BOARD_CHARGING_CMDLINE_NAME := "androidboot.mode"
-#BOARD_CHARGING_CMDLINE_VALUE := "charger"
+BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
+BOARD_BATTERY_DEVICE_NAME := "battery"
+BOARD_CHARGING_CMDLINE_NAME := "androidboot.mode"
+BOARD_CHARGING_CMDLINE_VALUE := "charger"
 #BOARD_CHARGER_ENABLE_SUSPEND := true
-#BOARD_CHARGER_SHOW_PERCENTAGE := true
+BOARD_CHARGER_SHOW_PERCENTAGE := true
 
 
 # Override healthd HAL
@@ -71,9 +67,9 @@ BOARD_EGL_CFG := device/samsung/degaswifi/configs/egl.cfg
 ENABLE_HWC_GC_PATH := true
 
 # Kernel
-TARGET_PREBUILT_KERNEL := device/samsung/degaswifi
+TARGET_PREBUILT_KERNEL := device/samsung/degaswifi/kernel
 TARGET_KERNEL_SOURCE := kernel/samsung/degaswifi
-TARGET_KERNEL_CONFIG := twrp_degaswifi_defconfig
+#TARGET_KERNEL_CONFIG := twrp_degaswifi_defconfig
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_CUSTOM_BOOTIMG_MK := device/samsung/degaswifi/degaswifi_mkbootimg.mk
 BOARD_MKBOOTIMG_ARGS := --dt device/samsung/degaswifi/rootdir/boot.img-dt --ramdisk_offset 0x01000000
@@ -100,8 +96,8 @@ TARGET_RECOVERY_INITRC := device/samsung/degaswifi/recovery/init.rc
 
 #TWRP
 #RECOVERY_VARIANT := twrp
-TW_CUSTOM_THEME := device/samsung/degaswifi/recovery/twres
-#TW_THEME := portrait_hdpi
+TW_CUSTOM_THEME := device/samsung/degaswifi/recovery/twmat
+TW_THEME := portrait_hdpi
 TW_DEFAULT_EXTERNAL_STORAGE := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 RECOVERY_SDCARD_ON_DATA := true
@@ -111,10 +107,22 @@ TW_NO_REBOOT_BOOTLOADER := true
 #TW_SCREEN_BLANK_ON_BOOT := true
 TW_HAS_MTP := true
 
+# MultiROM config. MultiROM also uses parts of TWRP config
+#MR_INPUT_TYPE := type_b
+#MR_INIT_DEVICES := device/samsung/degaswifi/recovery/mr_init_devices.c
+#MR_DPI := hdpi
+#MR_MUL := 1.5
+#MR_FSTAB := device/samsung/degaswifi/recovery.fstab
+#MR_USE_MROM_FSTAB := true
+# MR_DEVICE_VARIANTS := degas degasue degaswifi degaswifiue
+#                    0x885fffff
+#MR_KEXEC_MEM_MIN := 0x85000000
+#                   0x07dfffff
+#MR_KEXEC_MEM_MIN := 0x078fffff
 
 # Vold
-BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
-#TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/f_mass_storage/lun%d/file"
+BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true 
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/f_mass_storage/lun0/file"
 BOARD_UMS_LUNFILE := "/sys/devices/platform/soc.2/d4200000.axi/mv-udc/gadget/lun0/file"
 
 # WiFi
