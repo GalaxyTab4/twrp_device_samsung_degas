@@ -32,9 +32,9 @@
 /system			ext4	/dev/block/platform/soc.2/by-name/SYSTEM		flags=backup=1;canbewiped;wipeingui;display="System"
 /data			ext4	/dev/block/platform/soc.2/by-name/USER		    flags=backup=1;canbewiped;wipeingui;wipeduringfactoryreset
 /nvm			ext4	/dev/block/platform/soc.2/by-name/NVM			flags=backup=1;display="NVM"
-/efs			ext4	/dev/block/platform/soc.2/by-name/NVM			flags=backup=1;display="EFS"
+/efs			ext4	/dev/block/platform/soc.2/by-name/EFS			flags=backup=1;display="EFS"
 /preload		ext4	/dev/block/platform/soc.2/by-name/HIDDEN		flags=backup=1;display="Preload"
 /radio			emmc	/dev/block/platform/soc.2/by-name/MODEM		    flags=backup=1;display="MODEM"
 /usbstorage		vfat	/dev/block/sda1				      				flags=canbewiped;wipeingui;storage;removable;display="USB Storage"
-/external_sd    vfat    /dev/block/mmcblk1p1 /dev/block/mmcblk1         flags=removable;storage;display="EXT Storage"
+/external_sd    vfat    /dev/block/mmcblk1p1 /dev/block/mmcblk1         flags=removable;storage;display="External Storage"
 
