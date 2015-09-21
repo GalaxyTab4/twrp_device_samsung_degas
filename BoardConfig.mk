@@ -1,5 +1,5 @@
 # Assert
-# TARGET_OTA_ASSERT_DEVICE := degaswifi
+TARGET_OTA_ASSERT_DEVICE := degaswifi
 
 BOARD_VENDOR := samsung
 
@@ -11,7 +11,7 @@ TARGET_BOOTLOADER_BOARD_NAME := PXA1088
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
-TARGET_CPU_VARIANT := cortex-a9
+TARGET_CPU_VARIANT := cortex-a7
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
@@ -37,7 +37,7 @@ BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charg
 BOARD_BATTERY_DEVICE_NAME := "battery"
 BOARD_CHARGING_CMDLINE_NAME := "androidboot.mode"
 BOARD_CHARGING_CMDLINE_VALUE := "charger"
-#BOARD_CHARGER_ENABLE_SUSPEND := true
+BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_SHOW_PERCENTAGE := true
 
 
@@ -63,7 +63,6 @@ BOARD_USES_MRVL_HARDWARE := true
 BOARD_HAVE_PIXEL_FORMAT_INFO := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 USE_OPENGL_RENDERER := true
-BOARD_EGL_CFG := device/samsung/degaswifi/configs/egl.cfg
 ENABLE_HWC_GC_PATH := true
 
 # Kernel
@@ -72,8 +71,8 @@ TARGET_KERNEL_SOURCE := kernel/samsung/degaswifi
 #TARGET_KERNEL_CONFIG := twrp_degaswifi_defconfig
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_CUSTOM_BOOTIMG_MK := device/samsung/degaswifi/degaswifi_mkbootimg.mk
-BOARD_MKBOOTIMG_ARGS := --dt device/samsung/degaswifi/rootdir/boot.img-dt --ramdisk_offset 0x01000000
-BOARD_KERNEL_CMDLINE := initrd=0x01100000,1m rw androidboot.console=ttyS1 console=ttyS1,115200 panic_debug
+BOARD_MKBOOTIMG_ARGS := --dt device/samsung/degaswifi/dt.img --ramdisk_offset 0x01000000
+BOARD_KERNEL_CMDLINE := 
 BOARD_KERNEL_PAGESIZE := 2048
 TARGET_SPECIFIC_HEADER_PATH := device/samsung/degaswifi/include
     
@@ -103,9 +102,9 @@ RECOVERY_GRAPHICS_USE_LINELENGTH := true
 RECOVERY_SDCARD_ON_DATA := true
 TW_HAS_DOWNLOAD_MODE := true
 TW_NO_REBOOT_BOOTLOADER := true
-#TW_NEW_ION_HEAP := true
+TW_NEW_ION_HEAP := true
 #TW_SCREEN_BLANK_ON_BOOT := true
-TW_HAS_MTP := true
+#TW_HAS_MTP := true
 
 # MultiROM config. MultiROM also uses parts of TWRP config
 #MR_INPUT_TYPE := type_b
