@@ -149,12 +149,6 @@ on property:service.adb.root=1
 
 on charger
     class_start charger
-
-service sshd /sub/xbin/dropbear
-    disabled
-    seclabel u:r:sshd:s0
-
-
 # LPM
 on property:ro.bootmode=charger
     mount ext4 /dev/block/platform/soc.2/by-name/SYSTEM /system wait ro

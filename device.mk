@@ -1,4 +1,4 @@
-LOCAL_PATH := device/samsung/degaswifi
+PRODUCT_NAME := degaswifi
 
 # Charger
 PRODUCT_PACKAGES += charger charger_res_images
@@ -6,17 +6,18 @@ PRODUCT_PACKAGES += charger charger_res_images
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += persist.sys.usb.config=mtp
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
+	LOCAL_KERNEL := device/samsung/degaswifi/recovery/kernel
 else
 	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel \
+    $(LOCAL_PATH)/recovery/init.pxa1088.rc:root/init.pxa1088.rc \
+    $(LOCAL_PATH)/recovery/init.recovery.pxa1088.rc:root/init.recovery.pxa1088.rc \
     $(LOCAL_PATH)/recovery/sbin/lpm:root/sbin/lpm \
-    $(LOCAL_PATH)/recovery/sbin/sysinit:root/sbin/sysinit \
-    $(LOCAL_PATH)/recovery/etc/profile:root/etc/profile
+    $(LOCAL_PATH)/recovery/sbin/sysinit:root/sbin/sysinit
 
 $(call inherit-product, build/target/product/full.mk)
 
-PRODUCT_NAME := degaswifi
+

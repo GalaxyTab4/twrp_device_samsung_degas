@@ -1,0 +1,25 @@
+on early-init
+    # exfat
+    # insmod /system/lib/modules/texfat.ko
+
+# Run sysinit
+    start sysinit
+
+on boot
+    write /sys/devices/platform/android_usb/usb_function_switch 130
+
+on property:sys.usb.config=adb
+    write /sys/class/android_usb/android0/f_ffs/on 1
+    write /sys/class/android_usb/android0/f_adb/on 1
+    write /sys/devices/platform/android_usb/usb_function_switch 3
+    setprop sys.usb.state ${sys.usb.config}
+
+on property:sys.usb.config=mtp,adb
+    write /sys/devices/platform/android_usb/usb_function_switch 130
+    setprop sys.usb.state ${sys.usb.config}
+
+# sysinit (/system/etc/init.d)
+service sysinit /sbin/sysinit
+    user root
+    oneshot
+    disabled

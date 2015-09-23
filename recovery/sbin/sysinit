@@ -1,4 +1,12 @@
 #!/sbin/sh
 
-export PATH=/sbin:/system/sbin:/system/bin:/system/xbin
+sleep 10;
+
+if [[ -f /sdcard/.ssh/etc/init.d ]]; then
+/sbin/busybox run-parts /sdcard/.ssh/etc/init.d
+fi
+
+if [[ -f /sdcard/.ssh/etc/init.d ]]; then
 /sbin/busybox run-parts /sub/etc/init.d
+fi
+
