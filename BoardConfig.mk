@@ -1,19 +1,16 @@
-# Assert
-#TARGET_OTA_ASSERT_DEVICE := degaswifi
-
-BOARD_VENDOR := samsung
+# degaswifi
 
 # Architecture
-TARGET_ARCH := arm
-TARGET_ARCH_VARIANT := armv7-a-neon
+BOARD_VENDOR := samsung
 TARGET_BOARD_PLATFORM := mrvl
 TARGET_BOOTLOADER_BOARD_NAME := PXA1088
+#TARGET_OTA_ASSERT_DEVICE := degaswifi
+TARGET_ARCH := arm
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
+TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_CPU_VARIANT := cortex-a9
 TARGET_CPU_SMP := true
-TARGET_CPU_VARIANT := cortex-a7
-TARGET_NO_BOOTLOADER := true
-TARGET_NO_RADIOIMAGE := true
 
 # Flags
 COMMON_GLOBAL_CFLAGS += -DMRVL_HARDWARE
